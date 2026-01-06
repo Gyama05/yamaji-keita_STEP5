@@ -14,6 +14,8 @@ const value = input.value;
         displayArea.textContent = value;
     }
     
+    // ★ highlight クラスをトグルする
+    displayArea.classList.toggle('highlight');
 });
 
 // 背景色変更ボタンの処理
