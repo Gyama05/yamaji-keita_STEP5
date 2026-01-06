@@ -4,6 +4,9 @@ const displayArea = document.getElementById('displayArea');
 const colorBtn = document.getElementById('colorBtn');
 const tableBody = document.querySelector('#table');
 
+//追加回数カウンター
+let addCount = 0;
+
 
 //表示ボタンの処理
 btn.addEventListener('click', () => {
@@ -20,6 +23,14 @@ const value = input.value;
 
     //テーブルに行を追加
     addRow(value);
+
+    //行追加後にカウント増加
+    addCount++;
+    
+    //3回以上なら「表示」ボタンを非表示
+    if (addCount >= 3) {
+        btn.style.display = 'none';
+    }
 });
 
 // 行追加処理
@@ -38,6 +49,14 @@ function addRow(text) {
     //削除ボタンの動作
     deleteBtn.addEventListener('click', () => {
         tr.remove();
+
+        //削除時にカウント減少
+        addCount--;
+
+        //3回未満なら「表示」ボタンを再表示
+        if (addCount < 3) {
+            btn.style.display = 'inline-block';
+        }
     });
 
     tdDelete.appendChild(deleteBtn);
