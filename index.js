@@ -63,6 +63,13 @@ function addRow(text) {
     
     tr.appendChild(tdText);
     tr.appendChild(tdDelete);
+
+    //最大3件制御
+    const rows = tableBody.querySelectorAll('tr');
+    if (rows.length >= 3) {
+        rows[0].remove(); //一番古い行を削除
+        addCount--; //カウントも調整
+        }
     
     tableBody.appendChild(tr);
 }
