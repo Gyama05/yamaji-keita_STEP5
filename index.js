@@ -7,9 +7,15 @@ const tableBody = document.querySelector('#table');
 //追加回数カウンター
 let addCount = 0;
 
+let counter = 1;
 
 //表示ボタンの処理
 btn.addEventListener('click', () => {
+    //コンソールにループ回数出力
+    if (counter <= 5) {
+        console.log(counter); counter++;
+    }
+
 const value = input.value;
 
     if (value === '') {
@@ -68,7 +74,7 @@ function addRow(text) {
     const rows = tableBody.querySelectorAll('tr');
     if (rows.length >= 3) {
         rows[0].remove(); //一番古い行を削除
-        addCount--; //カウントも調整
+        // addCount--; //カウントも調整
         }
     
     tableBody.appendChild(tr);
